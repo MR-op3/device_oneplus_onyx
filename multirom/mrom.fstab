@@ -1,0 +1,13 @@
+/firmware        vfat    /dev/block/mmcblk0p1          flags=mounttodecrypt;fsflags=ro
+/system          ext4    /dev/block/mmcblk0p27
+/data            ext4    /dev/block/mmcblk0p28       flags=encryptable=/dev/block/platform/msm_sdcc.1/by-name/reserve2
+/cache           ext4    /dev/block/mmcblk0p15
+/persist         ext4    /dev/block/mmcblk0p14        flags=backup=1;display="Persist"
+/boot            emmc    /dev/block/mmcblk0p7
+/recovery        emmc    /dev/block/mmcblk0p16       flags=backup=1
+/misc            emmc    /dev/block/mmcblk0p20
+/efs1            emmc    /dev/block/mmcblk0p10       flags=backup=1;display=EFS
+/efs2            emmc    /dev/block/mmcblk0p11       flags=backup=1;subpartitionof=/efs1
+
+/external_sd     auto    /dev/block/mmcblk1p1     /dev/block/mmcblk1           flags=display="MicroSD Card";storage;wipeingui;removable
+/usb_otg         auto    /dev/block/sda1   /dev/block/sda                      flags=display="USB-OTG";storage;wipeingui;removable
