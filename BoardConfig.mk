@@ -36,8 +36,8 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := krait
 
 # Kernel Toolchain
-#KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
-#KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
+KERNEL_TOOLCHAIN_PREFIX := arm-eabi-
 # Rom Toolchain
 #TARGET_GCC_VERSION_EXP := 4.9
 
@@ -51,7 +51,7 @@ TARGET_CUSTOM_DTBTOOL := dtbToolonyx
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := cm_onyx_defconfig
 TARGET_KERNEL_SOURCE := kernel/oneplus/onyx
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androideabi-
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
@@ -167,17 +167,17 @@ TARGET_RECOVERY_IS_MULTIROM := true
 MR_ALLOW_NKK71_NOKEXEC_WORKAROUND := true
 MR_CONTINUOUS_FB_UPDATE := true
 MR_INPUT_TYPE := type_b
-MR_INIT_DEVICES := device/oneplus/onyx/multirom/mr_init_devices.c
+MR_INIT_DEVICES := $(PLATFORM_PATH)/multirom/mr_init_devices.c
 MR_DPI := hdpi
 MR_DPI_FONT := 216
 MR_USE_MROM_FSTAB := true
-MR_FSTAB := device/oneplus/recovery/root/etc/twrp.fstab
+MR_FSTAB := $(PLATFORM_PATH)/twrp.fstab
 MR_KEXEC_MEM_MIN := 0x20000000
 MR_KEXEC_DTB := true
-MR_DEVICE_HOOKS := device/oneplus/onyx/multirom/mr_hooks.c
+MR_DEVICE_HOOKS := $(PLATFORM_PATH)/multirom/mr_hooks.c
 MR_DEVICE_HOOKS_VER := 4
 #MR_USE_QCOM_OVERLAY := true
-#MR_QCOM_OVERLAY_HEADER := device/oneplus/onyx/multirom/framebuffer_qcom_overlay.h
+#MR_QCOM_OVERLAY_HEADER := $(PLATFORM_PATH)/multirom/framebuffer_qcom_overlay.h
 #MR_QCOM_OVERLAY_CUSTOM_PIXEL_FORMAT := MDP_RGBX_8888
 #MR_DEVICE_VARIANTS := onyx
 # bootmenu
